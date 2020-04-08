@@ -1,0 +1,55 @@
+<app-header titulo="Date & Time"></app-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Datos de nacimiento
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        Fecha de nacimiento
+      </ion-label>
+      <ion-datetime placeholder="Nacimiento"
+                   
+                    display-format="YYYY MMMM DD"
+                    cancelText="Cancelar"
+                    [ngModel]="dob.toISOString()"
+                    (ionChange)="onCambioFecha($event)">
+      </ion-datetime> 
+      <!--
+        value="{{dob | date: 'yyyy-MM-dd' }}"
+        [(ngModel)]="dob"
+      -->
+    </ion-item>
+    <ion-list-header>
+      <ion-item>
+        <ion-label>Restricciones</ion-label>
+      </ion-item>
+    </ion-list-header>
+     <ion-item>
+        <ion-label>Min y Max</ion-label>
+        <ion-datetime placeholder="yyy-MM-dd"
+                      display-format="YYYY MMMM DD">
+        </ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>Años</ion-label>
+          <ion-datetime placeholder="YYYY"
+                        display-format="YYYY"
+                        min="2015"
+                        max="2025"
+                        value="2020">
+          </ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Custom Date</ion-label>
+            <ion-datetime [pickerOptions]="customPickerOptions"
+                          >
+            </ion-datetime>
+            <!--[(ngModel)]="customDate"-->
+          </ion-item>
+  </ion-list>
+</ion-content>
